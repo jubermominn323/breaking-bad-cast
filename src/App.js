@@ -1,23 +1,33 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Header from './components/Header/Header';
+import ImageContainer from './components/ImageContainer/ImageContainer';
 
 function App() {
+  const [characters, setCharacters] = useState([]);
+
+  const updateCharacter = (filtered) =>{
+    console.log(filtered)
+    if(filtered.length !== 0){
+      setCharacters(filtered)
+    }else{
+      setCharacters(characters)
+    }
+  }
+
+  useEffect(() => {
+    fetch('https://www.breakingbadapi.com/api/characters')
+    .then(res=>res.json())
+    .then(result=>{
+        // console.log(result)
+        setCharacters(result)
+    })
+    
+}, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header characters={characters} updateCharacter={updateCharacter} />
+      <ImageContainer characters={characters} />
     </div>
   );
 }
