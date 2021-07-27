@@ -2,3 +2,16 @@ img{
     width: 500px;
     height: 600px;
 }
+
+.flip-side{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    width: 500px;
+    height: 600px;
+    background-color: #F3F2C9;
+    color: #003638;
+    
+}
