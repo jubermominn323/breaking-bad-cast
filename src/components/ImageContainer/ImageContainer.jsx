@@ -9,7 +9,7 @@ export default function ImageContainer({characters}) {
             {
                 characters.map((item) =>{
                     return(
-                        <div className="col-md-4 col-lg-3" key={item.char_id}>
+                        <div className="col-md-4" key={item.char_id}>
                             {
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
