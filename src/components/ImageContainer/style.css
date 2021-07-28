@@ -1,6 +1,6 @@
 img{
-    width: 500px;
-    height: 600px;
+    width: 380px;
+    height: 450px;
 }
 
 /* .flip-side{
@@ -19,9 +19,11 @@ img{
 
 .flip-card {
     background-color: transparent;
-    width: 500px;
-    height: 600px;
+    width: 380px;
+    height: 450px;
     perspective: 1000px;
+    padding: 4px;
+    margin-bottom: 8px;
   }
   
   .flip-card-inner {
