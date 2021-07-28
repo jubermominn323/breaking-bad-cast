@@ -10,8 +10,6 @@ function App() {
     console.log(filtered)
     if(filtered.length !== 0){
       setCharacters(filtered)
-    }else{
-      setCharacters(characters)
     }
   }
 
