@@ -20,22 +20,19 @@ export default function Header({characters, updateCharacter}) {
     }
 
     const handleInputChange = (e) =>{
+        e.preventDefault()
         console.log(e.target.value)
         setSearchText(e.target.value)
         getInfo(e.target.value)
         console.log(searchText)
     }
 
-    // useEffect(() =>{
-
-    // },[searchText])
-
     return (
         <header style={{marginBottom:"80px"}}>
             <nav className="navbar navbar-expand-lg fixed-top navbar-light bg-dark">
             <div className="container-fluid d-flex justify-content-center">
                 {/* <h1 className="bg-light">Search Images</h1> */}
-                <form className="d-flex">
+                <form className="d-flex" onSubmit={(e) => e.preventDefault()}>
                     <input className="form-control" type="search" value={searchText} onChange={(e) => handleInputChange(e)} placeholder="Search" aria-label="Search" />
                     <datalist id="browser">
                     {

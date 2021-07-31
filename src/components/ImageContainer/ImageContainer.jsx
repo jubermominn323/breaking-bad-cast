@@ -1,10 +1,36 @@
 import React from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import './style.css'
 
-export default function ImageContainer({characters}) {
+export default function ImageContainer({characters, fetchData, hasMore}) {
     // console.log(characters)
-    
+    const Loader = () =>{
+        return (
+            <div className="text-center">
+            <div className="spinner-grow text-success" role="status">
+            <span className="sr-only">Loading...</span>
+            </div>
+            <div className="spinner-grow text-danger ml-5" role="status">
+            <span className="sr-only">Loading...</span>
+            </div>
+            <div className="spinner-grow text-warning ml-5" role="status">
+            <span className="sr-only">Loading...</span>
+            </div>
+            </div>
+        )
+    }
     return (
+        <InfiniteScroll
+            dataLength={characters.length}
+            next={fetchData}
+            hasMore={hasMore}
+            loader={Loader()}
+            endMessage={
+                <p style={{ textAlign: 'center' }}>
+                  <b>Yay! You have seen it all</b>
+                </p>
+              }
+        >
         <div className="d-flex flex-wrap">
             {
                 characters.map((item) =>{
@@ -35,5 +61,6 @@ export default function ImageContainer({characters}) {
                 })
             }
         </div>
+        </InfiniteScroll>
     )
 }
