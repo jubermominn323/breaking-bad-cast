@@ -6,8 +6,9 @@ export default function Header({characters, updateCharacter, fetchData}) {
     // console.log(characters)
 
     const getInfo = (input) =>{
-        console.log(input)
         let filtered = [];
+        input = input.toLowerCase()
+        console.log(input)
         characters.forEach((data) =>{
             if(data.name.toLowerCase().includes(input)){
                 filtered.push(data)
