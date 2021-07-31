@@ -19,16 +19,18 @@ function App() {
     if(characters.length >= 62){
       setHasMore(false)
     }
-    fetch(`https://www.breakingbadapi.com/api/characters?limit=${numberOfCharacters}`)
-    .then(res=>res.json())
-    .then(result=>{
-      console.log(result)
-        setCharacters(result)
-    })
-    .catch(err =>{
-      console.log(err)
-    })
-    setNumberOfCharacters(numberOfCharacters + 12);
+    setTimeout(() =>{
+      fetch(`https://www.breakingbadapi.com/api/characters?limit=${numberOfCharacters}`)
+      .then(res=>res.json())
+      .then(result=>{
+        console.log(result)
+          setCharacters(result)
+      })
+      .catch(err =>{
+        console.log(err)
+      })
+      setNumberOfCharacters(numberOfCharacters + 12);
+    }, 500)
   }
 
   useEffect(() => {
@@ -36,7 +38,7 @@ function App() {
 }, [])
   return (
     <div>
-      <Header characters={characters} updateCharacter={updateCharacter} />
+      <Header characters={characters} updateCharacter={updateCharacter} fetchData={fetchData} />
       <ImageContainer characters={characters} fetchData={fetchData} hasMore={hasMore} />
     </div>
   );

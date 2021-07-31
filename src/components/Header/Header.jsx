@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Header({characters, updateCharacter}) {
+export default function Header({characters, updateCharacter, fetchData}) {
     const [searchText, setSearchText] = useState('');
     const [suggestion, setSuggestion] = useState([]);
     // console.log(characters)
@@ -21,10 +21,14 @@ export default function Header({characters, updateCharacter}) {
 
     const handleInputChange = (e) =>{
         e.preventDefault()
-        console.log(e.target.value)
+        console.log(e.target.value.length)
         setSearchText(e.target.value)
-        getInfo(e.target.value)
-        console.log(searchText)
+        if(e.target.value.length > 0){
+            getInfo(e.target.value)
+        } else{
+            fetchData();
+        }
+        // console.log(searchText)
     }
 
     return (
