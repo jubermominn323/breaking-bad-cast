@@ -35,7 +35,7 @@ export default function ImageContainer({characters, fetchData, hasMore}) {
             {
                 characters.map((item) =>{
                     return(
-                        <div className="col-md-4" key={item.char_id}>
+                        <div className="col-md-3" key={item.char_id}>
                             {
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
