@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 export default function Header({characters, updateCharacter, fetchData}) {
     const [searchText, setSearchText] = useState('');
     const [suggestion, setSuggestion] = useState([]);
-    // console.log(characters)
 
     const getInfo = (input) =>{
         let filtered = [];
@@ -13,7 +12,6 @@ export default function Header({characters, updateCharacter, fetchData}) {
                 filtered.push(data)
             }
         })
-        console.log(filtered)
         setSuggestion(filtered)
         updateCharacter(filtered)
 
