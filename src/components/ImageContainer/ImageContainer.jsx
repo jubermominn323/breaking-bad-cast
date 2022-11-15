@@ -3,7 +3,6 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import './style.css'
 
 export default function ImageContainer({characters, fetchData, hasMore}) {
-    // console.log(characters)
     const Loader = () =>{
         return (
             <div className="text-center">
