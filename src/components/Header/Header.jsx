@@ -8,7 +8,6 @@ export default function Header({characters, updateCharacter, fetchData}) {
     const getInfo = (input) =>{
         let filtered = [];
         input = input.toLowerCase()
-        console.log(input)
         characters.forEach((data) =>{
             if(data.name.toLowerCase().includes(input)){
                 filtered.push(data)
@@ -22,14 +21,12 @@ export default function Header({characters, updateCharacter, fetchData}) {
 
     const handleInputChange = (e) =>{
         e.preventDefault()
-        console.log(e.target.value.length)
         setSearchText(e.target.value)
         if(e.target.value.length > 0){
             getInfo(e.target.value)
         } else{
             fetchData();
         }
-        // console.log(searchText)
     }
 
     return (
